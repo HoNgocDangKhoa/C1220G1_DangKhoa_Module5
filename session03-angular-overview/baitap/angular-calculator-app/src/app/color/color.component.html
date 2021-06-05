@@ -1,0 +1,5 @@
+<h1>{{title}}</h1>
+<h3>Code color: {{color}}</h3>
+<span>Color</span>
+<input type="color" (change)="setColor()" [(ngModel)]="color" >
+<input type="text" [style.backgroundColor]="color">
