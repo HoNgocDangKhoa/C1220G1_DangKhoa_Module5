@@ -13,6 +13,7 @@ export class ProgressBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.loading()
   }
   loading() {
     let interval = setInterval(() => {

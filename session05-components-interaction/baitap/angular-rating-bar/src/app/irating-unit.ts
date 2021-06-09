@@ -1,4 +1,4 @@
 export interface IRatingUnit {
   value: number;
-  active: string;
+  active: boolean;
 }

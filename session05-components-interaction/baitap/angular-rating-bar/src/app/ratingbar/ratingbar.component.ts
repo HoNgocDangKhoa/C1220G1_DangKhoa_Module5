@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IRatingUnit} from '../irating-unit';
 
 @Component({
   selector: 'app-ratingbar',
@@ -6,10 +7,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ratingbar.component.css']
 })
 export class RatingbarComponent implements OnInit {
+  @Input()
+  max = 10;
+  @Input()
+  ratingValue = 5;
+  @Input()
+  showRatingValue = true;
+  ratingUnits: IRatingUnit[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.ratingUnits = Array.from({length: this.max},
+      (_, index) => ({
+        value: index + 1,
+        active: index < this.ratingValue
+      }));
+  }
+
+  select(index) {
+    this.ratingValue = index + 1;
+    this.ratingUnits.forEach((item, idx) => item.active = idx < this.ratingValue);
+  }
+
+  enter(index) {
+    this.ratingUnits.forEach((item, idx) => item.active = idx <= index);
+  }
+
+  reset() {
+    this.ratingUnits.forEach((item, idx) => item.active = idx < this.ratingValue);
   }
 
 }
