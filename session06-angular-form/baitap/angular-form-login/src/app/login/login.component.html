@@ -1,0 +1,30 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="getEmailPassword()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" formControlName="email">
+    </div>
+    <div *ngIf="loginForm.controls.email.errors?.required &&loginForm.controls.email.touched" style="color: red">
+      Can't be left blank
+    </div>
+    <div *ngIf="loginForm.controls.email.errors?.email &&loginForm.controls.email.touched" style="color: red">
+      Correct format abc@abc.com
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+    </div>
+    <div *ngIf="loginForm.controls.password.errors?.required &&loginForm.controls.password.touched" style="color: red">
+      Can't be left blank
+    </div>
+    <div *ngIf="loginForm.controls.password.errors?.minlength &&loginForm.controls.password.touched" style="color: red">
+      Has a length of 6 characters
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+  </form>
+</div>
+

@@ -1,0 +1,94 @@
+<div class="container">
+  <h1 style="text-align: center">Register </h1>
+  <form [formGroup]="registerForm">
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" formControlName="email">
+      </div>
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.email.errors?.required &&registerForm.controls.email.dirty" style="color: red">
+      Can't be left blank
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.email.errors?.email &&registerForm.controls.email.dirty" style="color: red">
+      Correct format abc@abc.com
+    </div>
+
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password">
+      </div>
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.password.errors?.required &&registerForm.controls.password.dirty" style="color: red">
+      Can't be left blank
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.password.errors?.minlength &&registerForm.controls.password.dirty" style="color: red">
+      Has a length of 6 characters
+    </div>
+    <div class="form-group row">
+      <label for="confirm" class="col-sm-2 col-form-label">Confirm Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="confirm" placeholder="Confirm Password" formControlName="confirm">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="country" class="col-sm-2 col-form-label">Country</label>
+      <div class="col-sm-10">
+        <select class="custom-select mr-sm-2" id="country" formControlName="country">
+          <option selected>...</option>
+          <option value="dn">Da Nang</option>
+          <option value="hn">Hue</option>
+          <option value="qn">Quang Nam</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.country.errors?.required &&registerForm.controls.country.dirty" style="color: red">
+      Can't be left blank
+    </div>
+    <div class="form-group row">
+      <label for="age" class="col-sm-2 col-form-label">Age</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="age" placeholder="Age" formControlName="age">
+      </div>
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.age.errors?.required &&registerForm.controls.age.dirty" style="color: red">
+      Can't be left blank
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Gender</label>
+      <div class="col-sm-10">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="name" formControlName="gender">
+          <label class="form-check-label" for="inlineRadio1">Nam</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="nu" formControlName="gender">
+          <label class="form-check-label" for="inlineRadio2">Nu</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.gender.errors?.required &&registerForm.controls.gender.dirty" style="color: red">
+      Can't be left blank
+    </div>
+    <div class="form-group row">
+      <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="phone" placeholder="Phone" formControlName="phone">
+      </div>
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.phone.errors?.required &&registerForm.controls.phone.dirty" style="color: red">
+      Can't be left blank
+    </div>
+    <div class="col-sm-10" *ngIf="registerForm.controls.country.errors?.pattern &&registerForm.controls.pattern.dirty" style="color: red">
+      True to format 84,xxxxxxxxx(x is a number)
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
