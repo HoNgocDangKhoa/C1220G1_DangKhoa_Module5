@@ -1,0 +1,26 @@
+<h1>Danh sách sản phẩm</h1>
+<a class="btn badge-info" routerLink="/product/create">Thêm mơi</a>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">Tên</th>
+    <th scope="col">Giá</th>
+    <th scope="col">Mô tả</th>
+    <th scope="col">Tuỳ Chọn</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td>
+      <a class="btn badge-danger" [routerLink]="['update',product.id]">Edit</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

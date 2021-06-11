@@ -1,0 +1,21 @@
+
+<h1>Dictionary</h1>
+<table border="2">
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>word</th>
+    <th>option</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let wor of list">
+    <td>{{wor.id}}</td>
+    <td>{{wor.word}}</td>
+    <td>
+      <a [routerLink]="['detail',wor.id]" >detail</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
