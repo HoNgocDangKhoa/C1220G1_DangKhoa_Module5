@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 style="text-align: center">Create New Category</h1>
+  <form [formGroup]="categoryForm" (ngSubmit)="submit()">
+    <table class="table table-striped">
+      <tr>
+        <th>Id</th>
+        <td><input type="text" formControlName="id"></td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <td><input type="text" formControlName="name"></td>
+      </tr>
+      <tr>
+        <td>Back to list</td>
+        <td><button class="btn-dark">Create</button></td>
+      </tr>
+    </table>
+  </form>
+</div>

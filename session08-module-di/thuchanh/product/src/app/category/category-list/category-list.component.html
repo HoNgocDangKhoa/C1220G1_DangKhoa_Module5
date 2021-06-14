@@ -1,0 +1,23 @@
+<div class="container">
+<h1>Danh sách danh mục sản phẩm</h1>
+  <input type="button" class="btn badge-info" routerLink="create" value="Add">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">Tên</th>
+    <th scope="col">Tuy Chon</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let category of categories; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{category.name}}</td>
+    <td>
+      <input type="button" class="btn badge-warning" [routerLink]="['edit',category.id]" value="Edit">
+      <input type="button" class="btn btn-danger" [routerLink]="['delete',category.id]" value="Delete">
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
