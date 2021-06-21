@@ -1,0 +1,106 @@
+<div class="container">
+  <h1 style="text-align: center">Create New Customer</h1>
+  <form [formGroup]="customerForm" (ngSubmit)="submit()" *ngIf="customerForm">
+<!--    <div class="form-group row">-->
+<!--      <label for="id" class="col-sm-2 col-form-label">Id</label>-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="text" class="form-control" id="id">-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="form-group row">
+      <label for="code" class="col-sm-2 col-form-label">Code</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="code" formControlName="code">
+        <div class="small text-danger" *ngIf="customerForm.controls.code.errors?.required&&customerForm.controls.code.touched" >
+          Code Customer Not Blank.
+        </div>
+        <div class="small text-danger" *ngIf="customerForm.controls.code.errors?.pattern&&customerForm.controls.code.touched" >
+          Code Customer is KH-XXXX (X is Number).
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div class="small text-danger" *ngIf="customerForm.controls.name.errors?.required&&customerForm.controls.name.touched" style="color: red">
+          Name Customer Not Blank.
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="Birthday" class="col-sm-2 col-form-label">Birthday</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="Birthday" formControlName="birthday">
+        <div class="small text-danger" *ngIf="customerForm.controls.birthday.errors?.required&&customerForm.controls.birthday.touched" style="color: red">
+          BirthDate Customer Not Blank.
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="card" class="col-sm-2 col-form-label">Id Card</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="card" formControlName="idCard">
+        <div class="small text-danger"  *ngIf="customerForm.controls.idCard.errors?.required&&customerForm.controls.idCard.touched" style="color: red">
+          Id Card Customer Not Blank.
+        </div>
+        <div class="small text-danger" *ngIf="customerForm.controls.idCard.errors?.pattern&&customerForm.controls.idCard.touched" style="color: red">
+          Id Card Customer Format (XXXXXXXXX or XXXXXXXXXXXX (X is number 0-9)).
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="phoneNumber" class="col-sm-2 col-form-label">PhoneNumber</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+        <div class="small text-danger" *ngIf="customerForm.controls.phoneNumber.errors?.required&&customerForm.controls.phoneNumber.touched" style="color: red">
+          Phone Number Customer Not Blank.
+        </div>
+        <div class="small text-danger" *ngIf="customerForm.controls.phoneNumber.errors?.pattern&&customerForm.controls.phoneNumber.touched" style="color: red">
+          Phone Number Customer Format (090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx).
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="email" formControlName="email">
+        <div class="small text-danger" *ngIf="customerForm.controls.email.errors?.required&&customerForm.controls.email.touched" style="color: red">
+          BirthDate Customer Not Blank.
+        </div>
+        <div class="small text-danger" *ngIf="customerForm.controls.email.errors?.email&&customerForm.controls.email.touched" style="color: red">
+          Email Customer format (abc@abc.com).
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="address" class="col-sm-2 col-form-label">Address</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="address" formControlName="address">
+        <div class="small text-danger" *ngIf="customerForm.controls.address.errors?.required&&customerForm.controls.address.touched" style="color: red">
+          Address Customer Not Blank.
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="customer" class="col-sm-2 col-form-label">CustomerType</label>
+      <div class="col-sm-10">
+      <select formControlName="customerType"  id="customer" class="form-control">
+        <option *ngFor="let customerType of customerTypeList " [ngValue]="customerType.id" >{{customerType.name}}</option>
+      </select>
+        <div class="small text-danger" *ngIf="customerForm.controls.customerType.errors?.required&&customerForm.controls.customerType.touched" style="color: red">
+          CustomerType Customer Not Blank.
+        </div>
+      </div>
+
+    </div>
+    <button class="badge-warning" [disabled]="! customerForm.valid">Create</button>
+  </form>
+</div>

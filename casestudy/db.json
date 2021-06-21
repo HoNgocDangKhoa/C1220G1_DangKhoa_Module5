@@ -1,0 +1,110 @@
+{
+  "customerList": [
+    {
+      "id": 11,
+      "code": "KH-1239",
+      "name": "dong",
+      "birthday": "2021-06-17",
+      "idCard": "777777777",
+      "phoneNumber": "0910000000",
+      "email": "admin@gmail.com",
+      "address": "Hue",
+      "customerType": 1
+    },
+    {
+      "id": 12,
+      "code": "KH-1239",
+      "name": "Adamaaaaaa",
+      "birthday": "2021-05-17",
+      "idCard": "144444444",
+      "phoneNumber": "0917894561",
+      "email": "khoaho250299@gmail.com",
+      "address": "Lao",
+      "customerType": 3
+    },
+    {
+      "id": 13,
+      "code": "KH-1239",
+      "name": "Adamaaaaaa",
+      "birthday": "2021-06-17",
+      "idCard": "234567890",
+      "phoneNumber": "0900909090",
+      "email": "admin@gmail.com",
+      "address": "Hue",
+      "customerType": 1
+    },
+    {
+      "id": 14,
+      "code": "KH-1233",
+      "name": "Kantea",
+      "birthday": "2021-06-17",
+      "idCard": "777777777777",
+      "phoneNumber": "0900000000",
+      "email": "khoaho25021999@gmail.com",
+      "address": "Hue",
+      "customerType": 2
+    },
+    {
+      "id": 16,
+      "code": "KH-1240",
+      "name": "Kantea",
+      "birthday": "2021-06-17",
+      "idCard": "777777777777",
+      "phoneNumber": "0909090909",
+      "email": "khoaho25021999@gmail.com",
+      "address": "Hue",
+      "customerType": 2
+    },
+    {
+      "id": 17,
+      "code": "KH-1250",
+      "name": "phuc",
+      "birthday": "2021-06-17",
+      "idCard": "555555555",
+      "phoneNumber": "0909111111",
+      "email": "admin@gmail.com",
+      "address": "Hoi An",
+      "customerType": 3
+    },
+    {
+      "id": 18,
+      "code": "KH-1244",
+      "name": "Huy",
+      "birthday": "2021-06-17",
+      "idCard": "111222111",
+      "phoneNumber": "0909111111",
+      "email": "khoaho250299@gmail.com",
+      "address": "Hue",
+      "customerType": 3
+    },
+    {
+      "id": 19,
+      "code": "KH-1239",
+      "name": "Kantea",
+      "birthday": "2021-06-08",
+      "idCard": "111222111",
+      "phoneNumber": "0909090909",
+      "email": "admin@gmail.com",
+      "address": "Ha Noi",
+      "customerType": 2
+    }
+  ],
+  "typeCustomerList": [
+    {
+      "id": 1,
+      "name": "Gold"
+    },
+    {
+      "id": 2,
+      "name": "Member"
+    },
+    {
+      "id": 3,
+      "name": "Platinum"
+    },
+    {
+      "id": 4,
+      "name": "Diamond"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+<div class="container-fluid ">
+  <div class="row text-center">
+    <div class="container">
+      <h2 class="h2 text-success">Customers Manager</h2>
+    </div>
+  </div>
+  <button type="button" class="btn badge-info" routerLink="create"><i class="fas fa-user-plus"></i></button>
+  <button type="button" class="btn badge-info" (click)="sort()">sort</button>
+  <div class="form-inline"  style="float:right">
+    <div style="float:right">
+    <input class="form-control m-md-1 " type="text" placeholder="Search Name" aria-label="Search" [(ngModel)]="nameAPI">
+    <input class="form-control" type="text" placeholder="Search Phone" aria-label="Search" [(ngModel)]="addressAPI">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search(nameAPI,addressAPI)">Search
+    </button>
+    </div>
+  </div>
+
+
+  <table class="table table-striped ">
+    <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Code</th>
+      <th scope="col">Name</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">Id Card</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">CustomerType</th>
+      <th scope="col">Option</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers | paginate: {itemsPerPage: 5 , currentPage: p }; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{customer.code}}</td>
+      <td>{{customer.name}}</td>
+      <td>{{customer.birthday | date: "MM/dd/yyyy"}}</td>
+      <td>{{customer.idCard}}</td>
+      <td>{{customer.phoneNumber}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.address}}</td>
+      <ng-container *ngFor="let customerType of customerTypeList">
+        <td *ngIf="customer.customerType==customerType.id">
+          {{customerType.name}}
+        </td>
+      </ng-container>
+      <td>
+        <button type="button" class="btn btn-muted " [routerLink]="['edit',customer.id]" ><i class="fas fa-edit" style="font-size: 1.5rem;color: blue"></i>
+        </button>
+        <button type="button" class="btn btn-muted" data-toggle="modal" data-target="#exampleModal"
+                (click)="getIdCus(customer.id)">
+          <i class="fas fa-trash-alt" style="font-size: 1.5rem; color:red;"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p= $event"></pagination-controls>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Dou you want to customer : {{code}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteCustomer()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
